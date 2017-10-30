@@ -16,3 +16,15 @@ Route::get('/', function () {
 });
 
 Route::get('/user', 'UserController@show');
+Route::post('login', 'app\AuthenticateController@authenticate');
+Route::post('register', 'app\AuthenticateController@register');
+
+Route::group(['middleware' => 'auth:api'], function () {
+    
+    // Authentication Routes...
+    Route::get('logout', 'API\AuthenticateController@logout');
+    
+    Route::get('/test', function () {
+        echo 'ok success';
+    });
+});
