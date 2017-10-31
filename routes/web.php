@@ -15,16 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/user', 'UserController@show');
-Route::post('login', 'app\AuthenticateController@authenticate');
-Route::post('register', 'app\AuthenticateController@register');
+Auth::routes();
 
-Route::group(['middleware' => 'auth:api'], function () {
-    
-    // Authentication Routes...
-    Route::get('logout', 'API\AuthenticateController@logout');
-    
-    Route::get('/test', function () {
-        echo 'ok success';
-    });
-});
+Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('products', 'ProductController');
