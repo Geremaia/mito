@@ -19,6 +19,11 @@ class ProductController extends Controller{
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        return view('products/index');
+        // get all the nerds
+        $products = Product::all();
+
+        // load the view and pass the nerds
+        return View::make('products.index')
+            ->with('products', $products);
     }
 }
