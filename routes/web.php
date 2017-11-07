@@ -32,6 +32,10 @@ Route::get('/admin/products/store', 'ProductController@store')->name('store');
 
 
 Route::get('/admin/products/show', 'ProductController@show')->name('show');
-Route::post('/admin/products/show', 'ProductController@show')->name('show');
+Route::post('/admin/products/editconfirm', 'ProductController@editconfirm')->name('editconfirm');
 
-Route::post('/admin/products/destroy', 'ProductController@destroy')->name('destroy');
+
+Route::get('/admin/products/delete', 'ProductController@delete')->name('delete');
+Route::post('/admin/products/deleteconfirm', 'ProductController@deleteconfirm')->name('deleteconfirm');
+
+Route::get('admin/edit', 'ProductController@edit');

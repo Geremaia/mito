@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product as Product;
+use DB;
 
 use Illuminate\Http\Request;
 
@@ -55,25 +56,42 @@ class ProductController extends Controller{
     }
 
     public function show($id){
-        //
+        return view('products.show');
     }
 
-    public function edit($id){
-        $product = Product::findOrFail($id);
-        return view('products.edit',compact('product'));
+    public function edit(){
+        $id = $_GET['id'];
+        $nome  = isset($_GET['product_name']) ? $_GET['product_name'] : '';
+        $valor = isset($_GET['product_value']) ? $_GET['product_value'] : '';
+        
+        // Aqui vai toda a consulta com o banco de dados
+        return include('../resources/views/products/show.blade.php');
     }
 
-    public function update(ProductRequest $request, $id){
-        $product = Product::findOrFail($id);
-        $product->name        = $request->name;
-        $product->valor       = $request->valor;
-        $product->save();
-        return redirect()->route('products.index')->with('message', 'Product updated successfully!');
+    public function editconfirm(){
+        $id  = $_POST['product_id'];
+        $nome = $_POST['product_name'];
+        $valor = $_POST['product_value'];
+        DB::table('products')
+            ->where('id', $id)
+            ->update(['nome' => $nome]);
+        DB::table('products')
+            ->where('id', $id)
+            ->update(['valor' => $valor]);
+            header('Location: /admin/products');
+            exit();
     }
 
-    public function destroy($id){
-        $product = Product::findOrFail($id);
-        $product->delete();
-        return redirect()->route('products.index')->with('alert-success','Product hasbeen deleted!');
+    public function delete(){
+        return include('../resources/views/products/delete.blade.php');
+    }
+
+    public function deleteconfirm(){
+        $id  = $_POST['product_id'];
+        DB::table('products')
+            ->where('id', '=', $id)
+            ->delete();
+            header('Location: /admin/products');
+            exit();
     }
 }
