@@ -39,11 +39,10 @@
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <select name="categoria" class="form-control col-md-7 col-xs-12">
-                                <?php foreach($categories as $category): ?>
-                                <option value="<?= $category->idcategories ?>"><?= $category->nome ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                        </div>
+                            @foreach($categories as $key => $value)
+                                <option value="<?= $value->idcategories ?>"><?= $value->name ?></option>
+                            @endforeach
+                        </select>    
                     </div>
 
                     <div class="form-group">
