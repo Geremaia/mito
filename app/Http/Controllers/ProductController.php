@@ -69,15 +69,12 @@ class ProductController extends Controller{
     }
 
     public function editconfirm(){
-
-        var_dump($_POST);
-        die();
         $id  = $_POST['product_id'];
         $nome = $_POST['name'];
-        $valor = $_POST['value'];
+        $valor = $_POST['valor'];
         DB::table('products')
             ->where('id', $id)
-            ->update(['nome' => $nome]);
+            ->update(['name' => $nome]);
         DB::table('products')
             ->where('id', $id)
             ->update(['valor' => $valor]);
