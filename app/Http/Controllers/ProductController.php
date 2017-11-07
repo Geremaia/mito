@@ -38,12 +38,10 @@ class ProductController extends Controller{
     public function store(){
         $nome  = $_POST['name'];
         $valor = $_POST['valor'];
-        $idcategories = $_POST['idcategories'];
     
         $p = new Product;
         $p->name = $nome;
         $p->valor = $valor;
-        $p->idcategories = $idcategories;
         $p->save(); 
 
         if($p->save()) {

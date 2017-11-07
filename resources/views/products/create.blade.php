@@ -35,16 +35,6 @@
                         </div>
                     </div>
 
-                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Categoria <span class="required">*</span>
-                    </label>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <select name="categoria" class="form-control col-md-7 col-xs-12">
-                            @foreach($categories as $key => $value)
-                                <option value="<?= $value->idcategories ?>"><?= $value->name ?></option>
-                            @endforeach
-                        </select>    
-                    </div>
-
                     <div class="form-group">
                         <div class="col-md-6 col-md-offset-4">
                             <button type="button" class="btn btn-warning">
