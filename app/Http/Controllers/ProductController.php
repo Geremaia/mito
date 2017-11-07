@@ -69,6 +69,9 @@ class ProductController extends Controller{
     }
 
     public function editconfirm(){
+
+        var_dump($_POST);
+        die();
         $id  = $_POST['product_id'];
         $nome = $_POST['name'];
         $valor = $_POST['value'];
