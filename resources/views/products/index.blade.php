@@ -23,7 +23,6 @@
                             <td>{{ $value->name }}</td>
                             <td>{{ $value->valor }}</td>
                             <td>
-                                <a class="btn btn-small btn-success" href="/admin/products/show?id=<?=$value->id?>">Mostrar</a>
                                 <a class="btn btn-small btn-warning" href="/admin/products/edit?id=<?=$value->id?>">Editar</a>
                                 <a class="btn btn-small btn-danger" href="/admin/products/delete?id=<?=$value->id?>">Excluir</a>
                             </td>
