@@ -16,12 +16,7 @@
                         <label for="name" class="col-md-4 control-label">ID</label>
 
                         <div class="col-md-6">
-                            <input type="text" id="product-id" name="product_id" required="required" class="form-control col-md-7 col-xs-12" readonly>
-                            <script> 
-                                var url = document.URL;
-                                var id = url.substring(url.lastIndexOf('=') + 1);
-                                document.getElementById("product-id").value = id; 
-                            </script>
+                            <input type="text" id="product-id" name="product_id" value="<?php$request->route('id');?>" required="required" class="form-control col-md-7 col-xs-12" readonly>
                         </div>
                     </div>
                     <div class="form-group">
