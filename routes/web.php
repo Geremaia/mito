@@ -31,7 +31,7 @@ Route::post('/admin/products/store', 'ProductController@store')->name('store');
 Route::get('/admin/products/store', 'ProductController@store')->name('store');
 
 
-Route::get('/admin/products/show', 'ProductController@show')->name('show');
+Route::get('/admin/products/edit', 'ProductController@edit')->name('edit');
 Route::post('/admin/products/editconfirm', 'ProductController@editconfirm')->name('editconfirm');
 
 
