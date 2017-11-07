@@ -11,7 +11,8 @@
                     <div class="alert alert-info">{{ Session::get('message') }}</div>
                 @endif
                 <form class="form-horizontal" method="POST" action="{{ route('deleteconfirm') }}">
-                    {{ csrf_field() }}  
+                    {{ csrf_field() }}
+                    <p >Tem certeza que quer excluir o Produto?</p>  
                     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                         <label for="name" class="col-md-4 control-label">ID</label>
 
