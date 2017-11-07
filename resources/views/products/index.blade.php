@@ -4,36 +4,25 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <nav class="navbar navbar-inverse">
-                    <div class="navbar-header">
-                        <a class="navbar-brand" href="{{ URL::to('products') }}">Product Alert</a>
-                    </div>
-                    <ul class="nav navbar-nav">
-                        <li><a href="{{ URL::to('products') }}">Vizualizar todos os produtos</a></li>
-                        <li><a href="{{ URL::to('products/create') }}">Novo Produto</a>
-                    </ul>
-                </nav>
+                <h1>Todos os produtos</h1>
 
-        <h1>Todos os produtos</h1>
+                <a href="/admin/products/new" class="btn btn-primary btn-sm pull-right">Novo Produto</a>
 
-        <!-- will be used to show any messages -->
-        @if (Session::has('message'))
-            <div class="alert alert-info">{{ Session::get('message') }}</div>
-        @endif
-
-                    <thead>
-                        <tr>
-                            <td>ID</td>
-                            <td>Name</td>
-                            <td>Email</td>
-                            <td>Actions</td>
-                        </tr>
-                    </thead>
-                    <tbody>
+                <!-- will be used to show any messages -->
+                @if (Session::has('message'))
+                    <div class="alert alert-info">{{ Session::get('message') }}</div>
+                @endif
+                <table class="table">
+                    <tr>
+                        <td>ID</td>
+                        <td>Nome</td>
+                        <td>Valor</td>
+                        <td>Actions</td>
+                    </tr>
                         @foreach($products as $key => $value)
                             <tr>
                                 <td>{{ $value->id }}</td>
-                                <td>{{ $value->nome }}</td>
+                                <td>{{ $value->name }}</td>
                                 <td>{{ $value->valor }}</td>
                                 <!-- we will also add show, edit, and delete buttons -->
                                 <td>
@@ -42,15 +31,14 @@
                                     <!-- we will add this later since its a little more complicated than the other two buttons -->
 
                                     <!-- show the nerd (uses the show method found at GET /nerds/{id} -->
-                                    <a class="btn btn-small btn-success" href="{{ URL::to('products/' . $value->id) }}">Show this Nerd</a>
+                                    <a class="btn btn-small btn-success" href="{{ URL::to('products/' . $value->id) }}">Mostrar produto</a>
 
                                     <!-- edit this nerd (uses the edit method found at GET /nerds/{id}/edit -->
-                                    <a class="btn btn-small btn-info" href="{{ URL::to('products/' . $value->id . '/edit') }}">Edit this Nerd</a>
+                                    <a class="btn btn-small btn-info" href="{{ URL::to('products/' . $value->id . '/edit') }}">Editar produto</a>
 
                                 </td>
                             </tr>
                         @endforeach
-                    </tbody>
                 </table>    
             </div>
         </div>
