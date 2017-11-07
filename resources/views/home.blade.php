@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Welcome</div>
+            <a href="/products" ><div class="panel-heading">Welcome</div></a>
 
                 <div class="panel-body">
                     @if (session('status'))
