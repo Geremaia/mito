@@ -65,13 +65,13 @@ class ProductController extends Controller{
         $valor = isset($_GET['product_value']) ? $_GET['product_value'] : '';
         
         // Aqui vai toda a consulta com o banco de dados
-        return include('../resources/views/products/show.blade.php');
+        return view('products.edit');
     }
 
     public function editconfirm(){
         $id  = $_POST['product_id'];
-        $nome = $_POST['product_name'];
-        $valor = $_POST['product_value'];
+        $nome = $_POST['name'];
+        $valor = $_POST['value'];
         DB::table('products')
             ->where('id', $id)
             ->update(['nome' => $nome]);
@@ -83,7 +83,7 @@ class ProductController extends Controller{
     }
 
     public function delete(){
-        return include('../resources/views/products/delete.blade.php');
+        return view('products.delete');
     }
 
     public function deleteconfirm(){

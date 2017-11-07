@@ -33,9 +33,11 @@ Route::get('/admin/products/store', 'ProductController@store')->name('store');
 
 Route::get('/admin/products/edit', 'ProductController@edit')->name('edit');
 Route::post('/admin/products/editconfirm', 'ProductController@editconfirm')->name('editconfirm');
+Route::get('/admin/products/editconfirm', 'ProductController@editconfirm')->name('editconfirm');
 
 
 Route::get('/admin/products/delete', 'ProductController@delete')->name('delete');
 Route::post('/admin/products/deleteconfirm', 'ProductController@deleteconfirm')->name('deleteconfirm');
+Route::get('/admin/products/deleteconfirm', 'ProductController@deleteconfirm')->name('deleteconfirm');
 
 Route::get('admin/edit', 'ProductController@edit');
